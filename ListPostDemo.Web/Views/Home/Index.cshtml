@@ -1,0 +1,42 @@
+﻿@using ListPostDemo.Data;
+@model PeopleViewModel
+
+@if(!string.IsNullOrEmpty(Model.Message))
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-success alert-dismissible fade-show" role="alert">
+               @Model.Message
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+}
+
+<main role="main" class="pb-3" />
+<div>
+    <a href="/home/addpeople" class="btn btn-success">Add People</a>
+</div>
+<div class="row mt-2 col-md-12">
+    <table class="tabel table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        @foreach (Person person in Model.People)
+        {
+            <tr>
+                <td>@person.FirstName</td>
+                <td>@person.LastName</td>
+                <td>@person.Age</td>
+            </tr>
+        }
+    </table>
+</div>
+
+
